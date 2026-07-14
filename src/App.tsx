@@ -1,27 +1,28 @@
-//This is a layout
+// @ts-ignore: allow importing untyped JS components
+import SearchBar from "./components/SearchBar";
+// @ts-ignore: allow importing untyped JS components
+import UserList from "./components/UserList";
+
 function App() {
-  return (
-    <div className="app">
 
-      <header>
-        <h1>User Directory</h1>
-      </header>
+    return (
 
-      <section className="search-section">
-            <input type="text"
-            placeholder="Search users..."
-            />
-      </section>
+        <div className="app">
 
-      <section className="users-section">
-          <div className="user-card">
-            <h2>John Doe</h2>
-            <p>john.doe@example.com</p>
-          </div>
-      </section>
+            <header>
 
-    </div>
-  );
+                <h1>User Directory</h1>
+
+            </header>
+
+            <SearchBar />
+
+            <UserList />
+
+        </div>
+
+    );
+
 }
 
 export default App;
