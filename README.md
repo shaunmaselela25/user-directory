@@ -1,77 +1,124 @@
-# React + TypeScript + Vite
+User Directory
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React application that fetches and displays users from the JSONPlaceholder API. The project demonstrates core React concepts such as component composition, state management, side effects, props, and rendering dynamic lists.
 
-Currently, two official plugins are available:
+Features
+Fetches users from the JSONPlaceholder API
+Displays each user's:
+Name
+Email
+Company Name
+Component-based architecture
+Responsive, reusable UI components
+Built with React and Vite
+Tech Stack
+React
+JavaScript (ES6+)
+Vite
+CSS
+Project Structure
+src/
+│
+├── components/
+│   ├── SearchBar.jsx
+│   ├── UserCard.jsx
+│   └── UserList.jsx
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+Getting Started
+Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Ensure you have the following installed:
 
-## React Compiler
+Node.js
+npm
+Installation
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Clone the repository:
 
-Note: This will impact Vite dev & build performances.
+git clone <repository-url>
 
-## Expanding the ESLint configuration
+Navigate into the project directory:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+cd user-directory
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Install dependencies:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Start the development server:
 
-```
+npm run dev
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open your browser and navigate to the URL displayed in the terminal (typically http://localhost:5173).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Data Source
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+This project uses the free JSONPlaceholder REST API.
 
-```
+API Endpoint:
+
+https://jsonplaceholder.typicode.com/users
+Architecture
+
+The application follows a top-down data flow.
+
+JSONPlaceholder API
+        │
+        ▼
+     App.jsx
+ (State & Data Fetching)
+        │
+        ▼
+     UserList
+        │
+        ▼
+     UserCard
+Component Responsibilities
+App
+Fetches data from the API
+Stores application state
+Passes data to child components
+UserList
+Receives an array of users
+Renders a UserCard for each user
+UserCard
+Displays a single user's:
+Name
+Email
+Company Name
+SearchBar
+Displays the search input
+Will manage user search functionality in later iterations
+React Concepts Demonstrated
+Functional Components
+Component Composition
+Props
+State (useState)
+Side Effects (useEffect)
+Rendering Lists with map()
+React Keys
+Unidirectional Data Flow
+Future Improvements
+Controlled search input
+Loading state
+Error handling
+"No users found" state
+Add User form
+Form validation
+Responsive design improvements
+Unit testing
+API abstraction layer
+Learning Objectives
+
+This project was built to practice:
+
+Breaking a UI into reusable components
+Thinking in React
+Managing state effectively
+Fetching external data
+Passing data through props
+Building maintainable component architecture
+Applying separation of concerns and single responsibility principles
